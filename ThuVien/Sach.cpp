@@ -15,22 +15,13 @@ std::ostream& SachViet::write(std::ostream& os) const
 std::ifstream& SachViet::read(std::ifstream& ifs)
 {
 		using std::getline;
-		str cache;
 
-		getline(ifs, cache);
-		ten() = cache;
+		getline(ifs, ten());
+		getline(ifs, ma_sach());
+		getline(ifs, tac_gia());
+		getline(ifs, nxb());
+		getline(ifs, gia_sach());
 
-		getline(ifs, cache);
-		ma_sach() = cache;
-
-		getline(ifs, cache);
-		tac_gia() = cache;
-
-		getline(ifs, cache);
-		nxb() = cache;
-
-		getline(ifs, cache);
-		gia_sach() = cache;
 		return ifs;
 }
 
@@ -38,26 +29,21 @@ std::istream& SachViet::read(std::istream& is)
 {
 		using std::getline;
 		using std::cout;
-		str cache;
 
 		cout << "Ten sach: ";
-		getline(is, cache);
-		ten() = cache;
+		getline(is, ten());
 
 		cout << "Ma sach: ";
-		getline(is, cache);
-		ma_sach() = cache;
+		getline(is, ma_sach());
 
 		cout << "Tac gia: ";
-		getline(is, cache);
-		tac_gia() = cache;
+		getline(is, tac_gia());
 
 		cout << "Nha xuat ban: ";
-		getline(is, cache);
-		nxb() = cache;
+		getline(is, nxb());
 
 		cout << "Gia sach: ";
-		getline(is, cache);
-		gia_sach() = cache;
+		getline(is, gia_sach());
+
 		return is;
 }

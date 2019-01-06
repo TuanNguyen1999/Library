@@ -116,10 +116,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Sach.h" />
+    <ClInclude Include="SachNgoai.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Sach.cpp" />
+    <ClCompile Include="SachNgoai.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Books.txt" />

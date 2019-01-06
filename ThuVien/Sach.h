@@ -3,6 +3,7 @@
 #include <string>
 class SachViet
 {
+protected:
 		typedef std::string str;
 public:
 		//Constructors, Destructor
@@ -14,11 +15,13 @@ public:
 				const str& _nxb,
 				const str& _gia_sach
 		) : sTen(_ten), sMaSach(_ma_sach), sTacGia(_tac_gia), sNXB(_nxb), sGiaSach(_gia_sach) {}
+		virtual ~SachViet(){}
 
 		//Read, Write data
 		virtual std::ostream& write(std::ostream& os) const;
 		virtual std::istream& read(std::istream& is);
 		virtual std::ifstream& read(std::ifstream& ifs);
+
 		//Setters
 		inline str& ten() { return sTen; }
 		inline str& ma_sach() { return sMaSach; }
