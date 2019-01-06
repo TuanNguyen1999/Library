@@ -115,11 +115,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DocGia.h" />
+    <ClInclude Include="Phieu.h" />
     <ClInclude Include="Sach.h" />
     <ClInclude Include="SachNgoai.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DocGia.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Phieu.cpp" />
     <ClCompile Include="Sach.cpp" />
     <ClCompile Include="SachNgoai.cpp" />
   </ItemGroup>
