@@ -23,6 +23,9 @@ public:
 		inline const str& dem() const { return sDem; }
 		str ho_ten() const;
 
+		friend std::ostream& operator<<(std::ostream&, const DocGia&);
+		friend std::istream& operator>>(std::istream&, DocGia&);
+
 private:
 		str sHo, sDem, sTen;
 };

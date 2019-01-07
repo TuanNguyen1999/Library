@@ -23,11 +23,14 @@ public:
 		inline const int& nam() const { return timeinfo.tm_year + 1900; }
 
 		std::string ctime() const;
-		std::ostream& print(std::ostream& os);
 		int distance_in_days(const ThoiGian&);
 
 		//static members
 		static int distance_in_days(const ThoiGian&, const ThoiGian&);
+
+		//Non-member functions
+		friend std::ostream& operator<<(std::ostream&, const ThoiGian&);
+
 private:
 		tm timeinfo;
 

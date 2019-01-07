@@ -17,8 +17,8 @@ DanhSachPhieu::const_reference DanhSachPhieu::tim_kiem(size_t pos) const
 {
 		if (pos >= m_DanhSach.size())
 		{
-				std::cout << "Method DanhSachPhieu::tim_kiem(size_t pos): Index out of range\n";
-				return;
+				std::cout << "Method DanhSachPhieu::tim_kiem(size_t pos): Index out of range\nFirst element is returned instead'\n";
+				return *m_DanhSach.cbegin();
 		}
 
 		const_iterator it = m_DanhSach.cbegin();
