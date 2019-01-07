@@ -1,35 +1,37 @@
 ﻿#ifndef _CL_THOIGIAN_H_
 #define _CK_THOIGIAN_H_
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <string>
-
+#include <ctime>
 class ThoiGian
 {
-		/*Class thời gian đơn giản*/
 public:
 		//Constructors, Destructor
-		ThoiGian() : nNgay(1u), nThang(1u), nNam(1900u) {}
-		ThoiGian(size_t _ngay, size_t _thang, size_t _nam) :
-				nNgay(_ngay), nThang(_thang), nNam(_nam) {}
+		ThoiGian();
+		ThoiGian(int _ngay, int _thang, int _nam);
+		ThoiGian(tm);
 		~ThoiGian() {}
 
 		//Setters
-		inline size_t& ngay() { return nNgay; }
-		inline size_t& thang() { return nThang; }
-		inline size_t& nam() { return nNam; }
+		ThoiGian& new_time(int _ngay, int _thang, int _nam);
+		ThoiGian& new_time(tm);
 		
 		//Getters
-		inline const size_t& ngay() const { return nNgay; }
-		inline const size_t& thang()const { return nThang; }
-		inline const size_t& nam() const { return nNam; }
+		inline const int& ngay() const { return timeinfo.tm_mday; }
+		inline const int& thang()const { return timeinfo.tm_mon + 1; }
+		inline const int& nam() const { return timeinfo.tm_year + 1900; }
 
-		std::string thoi_gian(char sep) const;
+		std::string ctime() const;
+		std::ostream& print(std::ostream& os);
+		int distance_in_days(const ThoiGian&);
 
 		//static members
-		int distance_in_days(const ThoiGian&, const ThoiGian&);
-		
+		static int distance_in_days(const ThoiGian&, const ThoiGian&);
 private:
-		size_t nNgay, nThang, nNam;
+		tm timeinfo;
+
+		tm time_tm() const { return timeinfo; }
 };
 
 #endif
