@@ -1,87 +1,42 @@
 #ifndef _CL_DANHSACH_H_
 #define _CL_DANHSACH_H_
 
-#include <list>
-#include <iostream>
+#include <vector>
 #include <string>
+#include <iostream>
+#include <sstream>
 
-template<typename value_type>
-class DanhSach : public std::list<value_type>
+class DanhSach
 {
-		typedef std::list<value_type> BaseClass;
 public:
-		DanhSach() : BaseClass() {}
-		DanhSach(const BaseClass& ds) : BaseClass(ds) {}
-		template<typename InputIterator>
-		DanhSach(InputIterator first, InputIterator last) : BaseClass(first, last) {}
-		DanhSach(const std::initializer_list<value_type>& ds) : BaseClass(ds) {}
-		virtual ~DanhSach() {}
-
-		std::istream& nhap_danh_sach(std::istream& is = std::cin)
-		{
-				std::string ch;
-				value_type cache;
-				while (1)
-				{
-						is >> cache;
-						this->BaseClass::push_back(cache);
-						std::cout << "thoat?(y/n): ";
-						std::getline(is, ch);
-						if (ch[0] == 'Y' || ch[0] == 'y')
-								return is;
-				}
-
-		}
-		std::ostream& xuat_danh_sach(std::ostream& os = std::cout) const
+		virtual void sua() = 0;
+		virtual void them() = 0;
+		virtual void xoa() = 0;
+		virtual void nhap_danh_sach() = 0;
+		virtual void xuat() const = 0;
+		virtual void ghi_file(const char*) const = 0;
+		virtual void tim_kiem() { return; }
+protected:
+		static int menu(const std::vector<std::string>& cmds)
 		{
 				int i = 1;
-				for (auto it = this->BaseClass::begin(); it != BaseClass::end(); it++)
+				int option = -1;
+				std::string cache;
+				for (auto cmd : cmds)
+						std::cout << i++ << ". " << cmd << std::endl;
+				std::cout << "Chon: ";
+				while (true)
 				{
-						os << i++ << "\\...\n" << *it << std::endl;
+						std::stringstream ss;
+						std::getline(std::cin, cache);
+						ss << cache;
+						ss >> option;
+						if (ss.eof() && option >= 1 && option < i)
+								return option;
+						std::cout << "Loi! chon lai: ";
 				}
-				return os;
 		}
+
 };
-
-template<typename value_type>
-class DanhSach : public std::list<value_type>
-{
-		typedef std::list<value_type> BaseClass;
-public:
-		DanhSach() : BaseClass() {}
-		DanhSach(const BaseClass& ds) : BaseClass(ds) {}
-		template<typename InputIterator>
-		DanhSach(InputIterator first, InputIterator last) : BaseClass(first, last) {}
-		DanhSach(const std::initializer_list<value_type>& ds) : BaseClass(ds) {}
-		virtual ~DanhSach() {}
-
-		std::istream& nhap_danh_sach(std::istream& is = std::cin)
-		{
-				std::string ch;
-				value_type cache;
-				while (1)
-				{
-						is >> cache;
-						this->BaseClass::push_back(cache);
-						std::cout << "thoat?(y/n): ";
-						std::getline(is, ch);
-						if (ch[0] == 'Y' || ch[0] == 'y')
-								return is;
-				}
-
-		}
-		std::ostream& xuat_danh_sach(std::ostream& os = std::cout) const
-		{
-				int i = 1;
-				for (auto it = this->BaseClass::begin(); it != BaseClass::end(); it++)
-				{
-						os << i++ << "\\...\n" << *it << std::endl;
-				}
-				return os;
-		}
-};
-
-
-
 
 #endif
