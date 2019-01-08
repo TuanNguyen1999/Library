@@ -1,4 +1,5 @@
 #include "Phieu.h"
+#include <iostream>
 
 Phieu::Phieu() :nSoNgayMuon(0), bDaTra(false), m_DocGia("null", "null", "null") {}
 Phieu::Phieu(const DocGia& _dg,
@@ -44,15 +45,26 @@ std::ostream& operator<<(std::ostream& os, const Phieu& p)
 
 		if (p.phi_tre_han())
 				os << "Phi tre han: " << p.phi_tre_han() << std::endl;
-		os << "Danh sach sach viet:\n";
 
-		for (auto sv : p.sach_ngoai())
-				os << "- " << sv << ", ";
-		os << "\b\b\n";		//delete ", " at the end 
-		os << "Danh sach sach ngoai:\n";
-		for (auto sv : p.sach_ngoai())
-				os << "- " << sv << ", ";
-		os << "\b\b\n";
+		os << "Danh sach sach viet:";
+		if (!p.sach_viet().empty())
+		{
+				for (auto sv : p.sach_viet())
+						os << "\n- " << sv << ", ";
+				os << "\b\b\n";		//delete ", " at the end 
+		}
+		else
+				os << " Empty\n";
+
+		os << "Danh sach sach ngoai:";
+		if(!p.sach_ngoai().empty())
+		{
+				for (auto sv : p.sach_ngoai())
+						os << "\n- " << sv << ", ";
+				os << "\b\b\n";
+		}
+		else
+				os << " Empty\n";
 
 		return os;
 }
@@ -63,3 +75,17 @@ ThoiGian Phieu::ngay_het_han() const
 		return expire;
 }
 
+std::istream& operator>>(std::istream& is, Phieu& p)
+{
+		using std::cout;
+		static int time[3];
+		cout << "Ho ten doc gia (vd Nguyen Van A): ";
+		is >> p.m_DocGia;
+		cout << "Ngay muon sach (dd-mm-yyyy): ";
+		is >> time[0] >> time[1] >> time[2];
+		cout << "Nhap danh sach sach viet:\n";
+		p.lSachViet.nhap_danh_sach(is);
+		cout << "Nhap danh sach sach ngoai:\n";
+		p.lSachNgoai.nhap_danh_sach(is);
+		return is;
+}

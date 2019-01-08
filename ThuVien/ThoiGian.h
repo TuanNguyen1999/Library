@@ -1,5 +1,5 @@
 ﻿#ifndef _CL_THOIGIAN_H_
-#define _CK_THOIGIAN_H_
+#define _CL_THOIGIAN_H_
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <string>
@@ -18,9 +18,9 @@ public:
 		ThoiGian& new_time(tm);
 		
 		//Getters
-		inline const int& ngay() const { return timeinfo.tm_mday; }
-		inline const int& thang()const { return timeinfo.tm_mon + 1; }
-		inline const int& nam() const { return timeinfo.tm_year + 1900; }
+		inline int ngay() const { return timeinfo.tm_mday; }
+		inline int thang()const { return timeinfo.tm_mon + 1; }
+		inline int nam() const { return timeinfo.tm_year + 1900; }
 
 		std::string ctime() const;
 		int distance_in_days(const ThoiGian&);
