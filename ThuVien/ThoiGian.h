@@ -23,10 +23,10 @@ public:
 		inline int nam() const { return timeinfo.tm_year + 1900; }
 
 		std::string ctime() const;
-		int distance_in_days(const ThoiGian&);
+		int distance_in_days(const ThoiGian& low);
 
 		//static members
-		static int distance_in_days(const ThoiGian&, const ThoiGian&);
+		static int distance_in_days(const ThoiGian& high, const ThoiGian& low);
 
 		//Non-member functions
 		friend std::ostream& operator<<(std::ostream&, const ThoiGian&);

@@ -12,7 +12,7 @@ ThoiGian::ThoiGian(tm time)
 		timeinfo = time;
 }
 
-ThoiGian::ThoiGian(int _ngay, int _thang, int _nam)
+ThoiGian::ThoiGian(int _ngay, int _thang, int _nam) : timeinfo()
 {
 		//relative time, eg: 61/13/2000
 		tm usertime = tm();

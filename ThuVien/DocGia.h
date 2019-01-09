@@ -11,6 +11,7 @@ public:
 		DocGia(const str& _ho, const str& _dem, const str& _ten) :
 				sHo(_ho), sDem(_dem), sTen(_ten) {}
 		DocGia(const str& _ho_ten);
+		DocGia& operator=(const DocGia&);
 		virtual ~DocGia() {}
 
 		//Setters

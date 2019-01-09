@@ -26,6 +26,15 @@ DocGia::DocGia(const str& _ho_ten)
 				//name only
 				sTen = _ho_ten;
 }
+DocGia& DocGia::operator=(const DocGia& dg)
+{
+		if (this == &dg)
+				return *this;
+		sHo = dg.sHo;
+		sTen = dg.sTen;
+		sDem = dg.sDem;
+		return *this;
+}
 
 std::string DocGia::ho_ten() const
 {

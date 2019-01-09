@@ -18,6 +18,7 @@ public:
 		virtual void ghi_file(const char*) const;
 		virtual std::vector<int> tim_kiem() const;
 		virtual void nhap_tu_file(const char*);
+		const std::vector<SachViet>& danh_sach() const { return m_list; }
 private:
 		std::vector<SachViet> m_list;
 } DSSV;

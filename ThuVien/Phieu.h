@@ -18,8 +18,8 @@ public:
 		Phieu& operator=(const Phieu&);
 		Phieu(const Phieu& p) :
 				m_DocGia(p.m_DocGia),
-				ds_SachNgoai(p.ds_SachNgoai),
-				ds_SachViet(p.ds_SachViet),
+				dsSachNgoai(p.dsSachNgoai),
+				dsSachViet(p.dsSachViet),
 				m_NgayMuon(p.m_NgayMuon),
 				nSoNgayMuon(p.nSoNgayMuon),
 				bDaTra(p.bDaTra) {}
@@ -31,8 +31,8 @@ public:
 		//Getters
 		inline bool da_tra_sach() const { return bDaTra; }
 		inline const DocGia& doc_gia() const { return m_DocGia; }
-		inline const std::list<SachViet>& sach_viet() const { return ds_SachViet; }
-		inline const std::list<SachNgoai>& sach_ngoai() const { return ds_SachNgoai; }
+		inline const std::list<SachViet>& sach_viet() const { return dsSachViet; }
+		inline const std::list<SachNgoai>& sach_ngoai() const { return dsSachNgoai; }
 		inline const ThoiGian& ngay_bat_dau() const { return m_NgayMuon; }
 		ThoiGian ngay_het_han() const;
 		inline size_t so_ngay_da_muon() const { return nSoNgayMuon; }
@@ -49,8 +49,8 @@ public:
 
 private:
 		DocGia m_DocGia;
-		std::list<SachNgoai> ds_SachNgoai;
-		std::list<SachViet> ds_SachViet;
+		std::list<SachNgoai> dsSachNgoai;
+		std::list<SachViet> dsSachViet;
 		ThoiGian m_NgayMuon;
 		size_t nSoNgayMuon;
 		bool bDaTra;
