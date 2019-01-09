@@ -1,13 +1,13 @@
 #ifndef _CL_PHIEU_H_
 #define _CL_PHIEU_H_
 
-#include "DanhSach.h"
+#include "IO.h"
 #include "DocGia.h"
 #include "SachNgoai.h"
 #include "Sach.h"
 #include "ThoiGian.h"
 #include <list>
-class Phieu
+class Phieu : public IO
 {
 public:
 		//Constructors, Destructor
@@ -18,8 +18,8 @@ public:
 		Phieu& operator=(const Phieu&);
 		Phieu(const Phieu& p) :
 				m_DocGia(p.m_DocGia),
-				lSachNgoai(p.lSachNgoai),
-				lSachViet(p.lSachViet),
+				ds_SachNgoai(p.ds_SachNgoai),
+				ds_SachViet(p.ds_SachViet),
 				m_NgayMuon(p.m_NgayMuon),
 				nSoNgayMuon(p.nSoNgayMuon),
 				bDaTra(p.bDaTra) {}
@@ -31,8 +31,8 @@ public:
 		//Getters
 		inline bool da_tra_sach() const { return bDaTra; }
 		inline const DocGia& doc_gia() const { return m_DocGia; }
-		inline const DanhSach<SachViet>& sach_viet() const { return lSachViet; }
-		inline const DanhSach<SachNgoai>& sach_ngoai() const { return lSachNgoai; }
+		inline const std::list<SachViet>& sach_viet() const { return ds_SachViet; }
+		inline const std::list<SachNgoai>& sach_ngoai() const { return ds_SachNgoai; }
 		inline const ThoiGian& ngay_bat_dau() const { return m_NgayMuon; }
 		ThoiGian ngay_het_han() const;
 		inline size_t so_ngay_da_muon() const { return nSoNgayMuon; }
@@ -44,18 +44,18 @@ public:
 		static const size_t PhiSachNgoai = 20000;
 		static size_t phi_tre_han(const Phieu&);
 
-		//Non-member functions
-
-		friend std::ostream& operator<<(std::ostream&, const Phieu&);
-		friend std::istream& operator>>(std::istream&, Phieu&);
+		//Read, write
+		virtual std::ostream& stream_write(std::ostream&) const;
 
 private:
 		DocGia m_DocGia;
-		DanhSach<SachNgoai> lSachNgoai;
-		DanhSach<SachViet> lSachViet;
+		std::list<SachNgoai> ds_SachNgoai;
+		std::list<SachViet> ds_SachViet;
 		ThoiGian m_NgayMuon;
 		size_t nSoNgayMuon;
 		bool bDaTra;
+		virtual std::istream& stream_read(std::istream& is) { return is; }
+		virtual std::ifstream& stream_read(std::ifstream& ifs) { return ifs; }
 };
 
 #endif

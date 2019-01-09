@@ -1,18 +1,19 @@
 #include "Sach.h"
+#include "Tools.h"
 #include <iostream>
 #include <fstream>
-std::ostream& SachViet::write(std::ostream& os) const
+std::ostream& SachViet::stream_write(std::ostream& os) const
 {
 		//sTen, sMaSach, sTacGia, sNXB, sGiaSach;
 		using std::endl;
-		os << "Ten sach: " << ten() << endl
-				<< "Ma sach: " << ma_sach() << endl
-				<< "Tac gia: " << tac_gia() << endl
-				<< "Nha xuat ban: " << nxb() << endl
-				<< "Gia sach: " << gia_sach() << endl;
+		os << "Ten sach: " << Tools::title(ten()) << endl
+				<< "Ma sach: " << Tools::toupper(ma_sach()) << endl
+				<< "Tac gia: " << Tools::title(tac_gia()) << endl
+				<< "Nha xuat ban: " << Tools::title(nxb()) << endl
+				<< "Gia sach: " << Tools::title(gia_sach());
 		return os;
 }
-std::ifstream& SachViet::read(std::ifstream& ifs)
+std::ifstream& SachViet::stream_read(std::ifstream& ifs)
 {
 		using std::getline;
 
@@ -25,7 +26,7 @@ std::ifstream& SachViet::read(std::ifstream& ifs)
 		return ifs;
 }
 
-std::istream& SachViet::read(std::istream& is)
+std::istream& SachViet::stream_read(std::istream& is)
 {
 		using std::getline;
 		using std::cout;

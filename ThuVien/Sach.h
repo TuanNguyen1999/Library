@@ -1,7 +1,8 @@
 #ifndef CL_SACH_H_
 #define CL_SACH_H_
 #include <string>
-class SachViet
+#include "IO.h"
+class SachViet : public IO
 {
 protected:
 		typedef std::string str;
@@ -18,9 +19,9 @@ public:
 		virtual ~SachViet(){}
 
 		//Read, Write data
-		virtual std::ostream& write(std::ostream& os) const;
-		virtual std::istream& read(std::istream& is);
-		virtual std::ifstream& read(std::ifstream& ifs);
+		virtual std::ostream& stream_write(std::ostream& os) const;
+		virtual std::istream& stream_read(std::istream& is);
+		virtual std::ifstream& stream_read(std::ifstream& ifs);
 
 		//Setters
 		inline str& ten() { return sTen; }
@@ -36,10 +37,6 @@ public:
 		inline const str& nxb() const { return sNXB; }
 		inline const str& gia_sach() const { return sGiaSach; }
 
-		//non-member functions
-		friend inline std::istream& operator>>(std::istream& is, SachViet& sv) { return sv.read(is); }
-		friend inline std::ifstream& operator>>(std::ifstream& ifs, SachViet& sv) { return sv.read(ifs); }
-		friend inline std::ostream& operator<<(std::ostream& os, const SachViet& sv) { return sv.write(os); }
 
 private:
 		str sTen, sMaSach, sTacGia, sNXB, sGiaSach;

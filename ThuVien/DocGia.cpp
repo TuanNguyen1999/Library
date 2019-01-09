@@ -1,5 +1,7 @@
 ﻿#include "DocGia.h"
+#include "Tools.h"
 #include <iostream>
+#include <fstream>
 DocGia::DocGia(const str& _ho_ten)
 {
 		char sep[256] = " -,._";
@@ -37,17 +39,24 @@ std::string DocGia::ho_ten() const
 		return s1 + s2 + s3;
 	
 }
-std::ostream& operator<<(std::ostream& os, const DocGia& dg)
-{
-		os << dg.ho_ten();
-		return os;
-}
-std::istream& operator>>(std::istream& is, DocGia& dg)
+std::istream& DocGia::stream_read(std::istream& is)
 {
 		std::string cache;
+		std::cout << "Nhap ho ten (vd: Nguyen Manh Tuan): ";
 		std::getline(is, cache);
-		dg = DocGia(cache);
+		*this = DocGia(cache);
 		return is;
 }
-
+std::ifstream& DocGia::stream_read(std::ifstream& ifs)
+{
+		std::string cache;
+		std::getline(ifs, cache);
+		*this = DocGia(cache);
+		return ifs;
+}
+std::ostream& DocGia::stream_write(std::ostream& os) const
+{
+		os << Tools::title(ho_ten());
+		return os;
+}
 

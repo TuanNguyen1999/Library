@@ -24,9 +24,9 @@ public:
 		inline const str& isbn() const { return sISBN; }
 
 		//Read, Write data
-		virtual std::ostream& write(std::ostream& os) const;
-		virtual std::istream& read(std::istream& is);
-		virtual std::ifstream& read(std::ifstream& ifs);
+		virtual std::ostream& stream_write(std::ostream& os) const;
+		virtual std::istream& stream_read(std::istream& is);
+		virtual std::ifstream& stream_read(std::ifstream& ifs);
 
 private:
 		str sISBN;

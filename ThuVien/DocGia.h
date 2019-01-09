@@ -1,7 +1,8 @@
 #ifndef _CL_DOCGIA_H_
 #define _CL_DOCGIA_H_
 #include <string>
-class DocGia
+#include "IO.h"
+class DocGia : public IO
 {
 public:
 		typedef std::string str;
@@ -23,8 +24,9 @@ public:
 		inline const str& dem() const { return sDem; }
 		str ho_ten() const;
 
-		friend std::ostream& operator<<(std::ostream&, const DocGia&);
-		friend std::istream& operator>>(std::istream&, DocGia&);
+		virtual std::istream& stream_read(std::istream&);
+		virtual std::ifstream& stream_read(std::ifstream&);
+		virtual std::ostream& stream_write(std::ostream&) const;
 
 private:
 		str sHo, sDem, sTen;

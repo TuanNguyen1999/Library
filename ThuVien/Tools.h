@@ -19,13 +19,19 @@ public:
 				std::cout << "Chon: ";
 				while (true)
 				{
-						//Checking for valid input
 						std::stringstream ss;
 						std::getline(std::cin, cache);
 						ss << cache;
 						int i = 0;
+						//Checking for valid input
 						while (ss.good() && i < cmds.size())
-								ss >> vOptions[i++];
+						{
+								//Check if number is in set of valid options
+								int n;
+								ss >> n;
+								if (n >= 1 && n <= cmds.size())
+										vOptions[i++] = n;;
+						}
 						//if(vOption[0] == 0) => true => No input or fail
 						if ((ss.eof() || i == cmds.size()) && vOptions[0] != 0)			//Succesfull input
 						{
@@ -35,9 +41,9 @@ public:
 						std::cout << "Loi! chon lai: ";
 				}
 		}
-		static std::string tolower(const std::string&);
-		static std::string toupper(const std::string&);
-		static std::string title(const std::string&);
+		static std::string tolower(std::string);
+		static std::string toupper(std::string);
+		static std::string title(std::string);
 
 };
 

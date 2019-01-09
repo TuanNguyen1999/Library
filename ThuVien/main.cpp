@@ -1,13 +1,8 @@
-#include "DanhSach.h"
-#include "ThoiGian.h"
-#include "DocGia.h"
-#include "Phieu.h"
-#include <iostream>
-#include <fstream>
-#include <ctime>
-#include <chrono>
+#include "DSSachViet.h"
+#include "DSSachNgoai.h"
+#include "DSDocGia.h"
 using namespace std;
-using namespace std::chrono;
+
 int main()
 {
 		//ThoiGian tg(30, 12, 2000);
@@ -22,7 +17,15 @@ int main()
 		//DanhSach<Phieu> a;
 		//a.nhap_danh_sach(cin);
 		//a.xuat_danh_sach(cout);
-		int time[3];
-		cin >> time[0] >> time[1] >> time[2];
+		vector<string> v = {
+				"a","b","c"
+		};
+		DSSV ds;
+		ds.nhap_tu_file("SachViet.txt");
+		ds.xuat();
+		ds.xoa();
+		ds.xuat();
+		//DocGia dg("nguyen manh tuan");
+		//cout << dg;
 		return 0;
 }
