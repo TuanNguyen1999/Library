@@ -20,17 +20,8 @@ void DSSachNgoai::xuat() const
 }
 void DSSachNgoai::nhap_danh_sach()
 {
-		std::string cache;
-		SachNgoai temp;
 		m_list.clear();
-		while (true)
-		{
-				them();
-				std::cout << "Tiep tuc?(y/n):";
-				std::getline(std::cin, cache);
-				if (cache[0] == 'n' || cache[0] == 'N')
-						return;
-		}
+		them();
 }
 void DSSachNgoai::nhap_tu_file(const char* file)
 {

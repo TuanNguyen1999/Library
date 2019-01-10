@@ -18,17 +18,8 @@ void DSSachViet::xuat() const
 }
 void DSSachViet::nhap_danh_sach()
 {
-		std::string cache;
-		SachViet temp;
 		m_list.clear();
-		while (true)
-		{
-				them();
-				std::cout << "Tiep tuc?(y/n):";
-				std::getline(std::cin, cache);
-				if (cache[0] == 'n' || cache[0] == 'N')
-						return;
-		}
+		them();
 }
 void DSSachViet::nhap_tu_file(const char* file)
 {
@@ -47,8 +38,14 @@ void DSSachViet::nhap_tu_file(const char* file)
 void DSSachViet::them()
 {
 		SachViet temp;
-		std::cin >> temp;
-		m_list.push_back(temp);
+		std::cout << "/*Bo trong tai bat cu thuoc tinh nao neu muon ngung nhap*/\n";
+		while (1)
+		{
+				std::cin >> temp;
+				if (temp.ten().empty())
+						return;
+				m_list.push_back(temp);
+		}
 }
 std::vector<int> DSSachViet::tim_kiem() const
 {
