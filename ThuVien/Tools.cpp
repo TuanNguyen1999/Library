@@ -1,6 +1,7 @@
 #include "Tools.h"
 #include <Windows.h>
-
+#include <chrono>
+#include <thread>
 std::string Tools::tolower(std::string str)
 {
 		for (size_t i = 0; i < str.length(); i++)
@@ -33,6 +34,10 @@ void Tools::pause()
 		std::cout << "Press Enter to continue...";
 		std::string cache;
 		std::getline(std::cin, cache);
+}
+void Tools::sleep_for_milliseconds(int ms)
+{
+		std::this_thread::sleep_for(std::chrono::milliseconds(ms));
 }
 void Tools::clear()
 {

@@ -47,7 +47,7 @@ public:
 
 		static void pause();
 		static void clear();
-
+		static void sleep_for_milliseconds(int);
 };
 
 #endif

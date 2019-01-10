@@ -14,6 +14,11 @@ void DSSachNgoai::ghi_file(const char* file) const
 
 void DSSachNgoai::xuat() const
 {
+		if (m_list.empty())
+		{
+				std::cout << "Danh sach trong.\n";
+				return;
+		}
 		int i = 1;
 		for (auto obj : m_list)
 				std::cout << i++ << "\\\n" << obj << std::endl;
@@ -40,8 +45,15 @@ void DSSachNgoai::nhap_tu_file(const char* file)
 void DSSachNgoai::them()
 {
 		SachNgoai temp;
-		std::cin >> temp;
-		m_list.push_back(temp);
+		std::cout << "/*Bo trong tai bat cu thuoc tinh nao neu muon ngung nhap*/\n";
+		while (1)
+		{
+				std::cin >> temp;
+				if (temp.ten().empty())
+						return;
+				m_list.push_back(temp);
+				std::cout << "Da them thanh cong!\n";
+		}
 }
 std::vector<int> DSSachNgoai::tim_kiem() const
 {

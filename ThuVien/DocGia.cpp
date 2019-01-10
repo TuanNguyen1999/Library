@@ -4,27 +4,31 @@
 #include <fstream>
 DocGia::DocGia(const str& _ho_ten)
 {
-		char sep[256] = " -,._";
+		if (!_ho_ten.empty())
+		{
+				char sep[256] = " -,._";
 
-		size_t nHoPos = _ho_ten.find_first_of(sep);
-		size_t nTenPos = _ho_ten.find_last_of(sep);
-		
-		if (nHoPos != nTenPos)
-		{
-				//Full name
-				sHo = _ho_ten.substr(0u, nHoPos);
-				sTen = _ho_ten.substr(nTenPos + 1u, _ho_ten.length() - nTenPos);
-				sDem = _ho_ten.substr(nHoPos + 1u, nTenPos - nHoPos - 1);
+				size_t nHoPos = _ho_ten.find_first_of(sep);
+				size_t nTenPos = _ho_ten.find_last_of(sep);
+
+				if (nHoPos != nTenPos)
+				{
+						//Full name
+						sHo = _ho_ten.substr(0u, nHoPos);
+						sTen = _ho_ten.substr(nTenPos + 1u, _ho_ten.length() - nTenPos);
+						sDem = _ho_ten.substr(nHoPos + 1u, nTenPos - nHoPos - 1);
+				}
+				else if (nHoPos != std::string::npos)
+				{
+						//First name and Last name
+						sHo = _ho_ten.substr(0u, nHoPos);
+						sTen = _ho_ten.substr(nTenPos + 1u, _ho_ten.length() - nTenPos);
+				}
+				else
+						//name only
+						sTen = _ho_ten;
 		}
-		else if (nHoPos != std::string::npos)
-		{
-				//First name and Last name
-				sHo = _ho_ten.substr(0u, nHoPos);
-				sTen = _ho_ten.substr(nTenPos + 1u, _ho_ten.length() - nTenPos);
-		}
-		else
-				//name only
-				sTen = _ho_ten;
+
 }
 DocGia& DocGia::operator=(const DocGia& dg)
 {
@@ -51,7 +55,7 @@ std::string DocGia::ho_ten() const
 std::istream& DocGia::stream_read(std::istream& is)
 {
 		std::string cache;
-		std::cout << "Nhap ho ten (vd: Nguyen Manh Tuan): ";
+		std::cout << "Nhap ho ten (vd: nguyen manh tuan): ";
 		std::getline(is, cache);
 		*this = DocGia(cache);
 		return is;

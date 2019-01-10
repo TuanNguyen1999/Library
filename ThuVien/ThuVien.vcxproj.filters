@@ -24,7 +24,34 @@
     <ClInclude Include="DocGia.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ThoiGian.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DanhSach.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Phieu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DSSachViet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DSSachNgoai.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThuVien.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DSDocGia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DSPhieu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,11 +68,37 @@
     <ClCompile Include="DocGia.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ThoiGian.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DanhSach.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Phieu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DSSachViet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DSSachNgoai.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThuVien.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DSDocGia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DSPhieu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Books.txt" />
+    <Text Include="SachNgoai.txt" />
+    <Text Include="SachViet.txt" />
+    <Text Include="DocGia.txt" />
   </ItemGroup>
 </Project>

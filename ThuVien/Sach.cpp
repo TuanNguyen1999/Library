@@ -23,6 +23,12 @@ std::ifstream& SachViet::stream_read(std::ifstream& ifs)
 		getline(ifs, nxb());
 		getline(ifs, gia_sach());
 
+		if (
+				ten().empty() || ma_sach().empty() || tac_gia().empty() ||
+				nxb().empty() || gia_sach().empty()
+				)
+				*this = SachViet();
+
 		return ifs;
 }
 
@@ -45,6 +51,12 @@ std::istream& SachViet::stream_read(std::istream& is)
 
 		cout << "Gia sach: ";
 		getline(is, gia_sach());
+
+		if (
+				ten().empty() || ma_sach().empty() || tac_gia().empty() ||
+				nxb().empty() || gia_sach().empty()
+				)
+				*this = SachViet();
 
 		return is;
 }

@@ -115,20 +115,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DanhSach.h" />
     <ClInclude Include="DocGia.h" />
+    <ClInclude Include="DSDocGia.h" />
+    <ClInclude Include="DSPhieu.h" />
+    <ClInclude Include="DSSachNgoai.h" />
+    <ClInclude Include="DSSachViet.h" />
+    <ClInclude Include="IO.h" />
     <ClInclude Include="Phieu.h" />
     <ClInclude Include="Sach.h" />
     <ClInclude Include="SachNgoai.h" />
+    <ClInclude Include="ThoiGian.h" />
+    <ClInclude Include="ThuVien.h" />
+    <ClInclude Include="Tools.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DanhSach.cpp" />
     <ClCompile Include="DocGia.cpp" />
+    <ClCompile Include="DSDocGia.cpp" />
+    <ClCompile Include="DSPhieu.cpp" />
+    <ClCompile Include="DSSachNgoai.cpp" />
+    <ClCompile Include="DSSachViet.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Phieu.cpp" />
     <ClCompile Include="Sach.cpp" />
     <ClCompile Include="SachNgoai.cpp" />
+    <ClCompile Include="ThoiGian.cpp" />
+    <ClCompile Include="ThuVien.cpp" />
+    <ClCompile Include="Tools.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Books.txt" />
+    <Text Include="DocGia.txt" />
+    <Text Include="SachViet.txt" />
+    <Text Include="SachNgoai.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

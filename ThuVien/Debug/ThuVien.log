@@ -1,2 +1,54 @@
-﻿  DocGia.cpp
+﻿  DanhSach.cpp
+  DocGia.cpp
+  DSDocGia.cpp
+e:\visual studio\thuvien\thuvien\dsdocgia.cpp(70): warning C4018: '<': signed/unsigned mismatch
+e:\visual studio\thuvien\thuvien\tools.h(27): warning C4018: '<': signed/unsigned mismatch
+  e:\visual studio\thuvien\thuvien\dsdocgia.cpp(63): note: see reference to function template instantiation 'std::vector<int,std::allocator<_Ty>> Tools::menu<std::string>(const std::vector<std::string,std::allocator<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>> &,bool)' being compiled
+          with
+          [
+              _Ty=int
+          ]
+e:\visual studio\thuvien\thuvien\tools.h(32): warning C4018: '<=': signed/unsigned mismatch
+  DSPhieu.cpp
+e:\visual studio\thuvien\thuvien\tools.h(27): warning C4018: '<': signed/unsigned mismatch
+  e:\visual studio\thuvien\thuvien\dsphieu.cpp(64): note: see reference to function template instantiation 'std::vector<int,std::allocator<_Ty>> Tools::menu<std::string>(const std::vector<std::string,std::allocator<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>> &,bool)' being compiled
+          with
+          [
+              _Ty=int
+          ]
+e:\visual studio\thuvien\thuvien\tools.h(32): warning C4018: '<=': signed/unsigned mismatch
+  DSSachNgoai.cpp
+e:\visual studio\thuvien\thuvien\dssachngoai.cpp(71): warning C4018: '<': signed/unsigned mismatch
+e:\visual studio\thuvien\thuvien\tools.h(27): warning C4018: '<': signed/unsigned mismatch
+  e:\visual studio\thuvien\thuvien\dssachngoai.cpp(64): note: see reference to function template instantiation 'std::vector<int,std::allocator<_Ty>> Tools::menu<std::string>(const std::vector<std::string,std::allocator<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>> &,bool)' being compiled
+          with
+          [
+              _Ty=int
+          ]
+e:\visual studio\thuvien\thuvien\tools.h(32): warning C4018: '<=': signed/unsigned mismatch
+  DSSachViet.cpp
+e:\visual studio\thuvien\thuvien\dssachviet.cpp(69): warning C4018: '<': signed/unsigned mismatch
+e:\visual studio\thuvien\thuvien\tools.h(27): warning C4018: '<': signed/unsigned mismatch
+  e:\visual studio\thuvien\thuvien\dssachviet.cpp(62): note: see reference to function template instantiation 'std::vector<int,std::allocator<_Ty>> Tools::menu<std::string>(const std::vector<std::string,std::allocator<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>> &,bool)' being compiled
+          with
+          [
+              _Ty=int
+          ]
+e:\visual studio\thuvien\thuvien\tools.h(32): warning C4018: '<=': signed/unsigned mismatch
+  main.cpp
+  Phieu.cpp
+  Sach.cpp
+  SachNgoai.cpp
+  ThoiGian.cpp
+e:\visual studio\thuvien\thuvien\thoigian.cpp(59): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  ThuVien.cpp
+e:\visual studio\thuvien\thuvien\tools.h(27): warning C4018: '<': signed/unsigned mismatch
+  e:\visual studio\thuvien\thuvien\thuvien.cpp(25): note: see reference to function template instantiation 'std::vector<int,std::allocator<_Ty>> Tools::menu<std::string>(const std::vector<std::string,std::allocator<std::basic_string<char,std::char_traits<char>,std::allocator<char>>>> &,bool)' being compiled
+          with
+          [
+              _Ty=int
+          ]
+e:\visual studio\thuvien\thuvien\tools.h(32): warning C4018: '<=': signed/unsigned mismatch
+  Tools.cpp
+  Generating Code...
   ThuVien.vcxproj -> E:\Visual Studio\ThuVien\Debug\ThuVien.exe

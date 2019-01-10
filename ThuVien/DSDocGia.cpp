@@ -14,23 +14,19 @@ void DSDocGia::ghi_file(const char* file) const
 
 void DSDocGia::xuat() const
 {
+		if (m_list.empty())
+		{
+				std::cout << "Danh sach trong.\n";
+				return;
+		}
 		int i = 1;
 		for (auto obj : m_list)
-				std::cout << i++ << "\\\n" << obj << std::endl;
+				std::cout << i++ << "\\. " << obj << std::endl;
 }
 void DSDocGia::nhap_danh_sach()
 {
-		std::string cache;
-		DocGia temp;
 		m_list.clear();
-		while (true)
-		{
-				them();
-				std::cout << "Tiep tuc?(y/n):";
-				std::getline(std::cin, cache);
-				if (cache[0] == 'n' || cache[0] == 'N')
-						return;
-		}
+		them();
 }
 void DSDocGia::nhap_tu_file(const char* file)
 {
@@ -48,8 +44,15 @@ void DSDocGia::nhap_tu_file(const char* file)
 void DSDocGia::them()
 {
 		DocGia temp;
-		std::cin >> temp;
-		m_list.push_back(temp);
+		std::cout << "/*Bo trong neu muon ngung nhap*/\n";
+		while (1)
+		{
+				std::cin >> temp;
+				//Check if user input nothing
+				if (temp.ten().empty())
+						return;
+				m_list.push_back(temp);
+		}
 }
 std::vector<int> DSDocGia::tim_kiem() const
 {

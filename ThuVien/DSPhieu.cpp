@@ -12,17 +12,25 @@ void DSPhieu::ghi_file(const char* file) const
 		for (auto obj : m_list)
 				wf << i++ << "\\\n" << obj << std::endl;
 }
-void DSPhieu::nhap_danh_sach(const DSDG&, const DSSV& dssv, const DSSN& dssn)
+void DSPhieu::nhap_danh_sach(const DSDG& dsdg, const DSSV& dssv, const DSSN& dssn)
 {
 		m_list.clear();
-		them();
+		them(dsdg, dssv, dssn);
 }
 
 void DSPhieu::xuat() const
 {
-		int i = 1;
+		int i = 0;
+		if (m_list.empty())
+		{
+				std::cout << "Danh sach trong.\n";
+				return;
+		}
 		for (auto obj : m_list)
-				std::cout << i++ << "\\\n" << obj << std::endl;
+		{
+				std::cout << ++i << ").\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-\n" << obj << std::endl;
+				std::cout << "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-\n";
+		}
 }
 void DSPhieu::them(const DSDG& dsdg, const DSSV& dssv, const DSSN& dssn)
 {
@@ -120,15 +128,22 @@ void DSPhieu::them(const DSDG& dsdg, const DSSV& dssv, const DSSN& dssn)
 		
 }
 
+
 void DSPhieu::xoa()
 {
+
 		int flagAbort = -1;
 
+		//Print out list
+		xuat();
+
+		//Assumpt that tim_kiem() return all elements' indexes in m_list
+		std::vector<int> vIndexes(m_list.size());
+		for (size_t i = 0; i < vIndexes.size(); i++)
+				vIndexes[i] = i;
+
 		//Ask user to choose what to delete
-		std::vector<int> vIndexes = tim_kiem();							//3 4 8
-		if (vIndexes.empty())
-				return;
-		std::vector<int> vCmds(vIndexes.size() + 1, 0);			//1 2 3 -1
+		std::vector<int> vCmds(vIndexes.size() + 1, 0);
 		for (size_t i = 0; i < vCmds.size(); i++)
 				vCmds[i] = i + 1;
 		vCmds[vCmds.size() - 1] = flagAbort;
@@ -154,4 +169,20 @@ void DSPhieu::xoa()
 				m_list.erase(m_list.begin() + vPosToDelete[i]);
 		}
 		std::cout << "Xoa thanh cong!!\n";
+}
+void DSPhieu::danh_sach_tre_han() const
+{
+		int i = 0;
+		for (const Phieu& phieu : m_list)
+		{
+				int nTien = phieu.phi_tre_han();
+				if (nTien)
+				{
+						std::cout << ++i << "\\\n" << "Doc gia: " << phieu.doc_gia() << std::endl
+								<< "Ngay muon: " << phieu.ngay_bat_dau() << std::endl
+								<< "So ngay da muon: " << phieu.so_ngay_da_muon() << std::endl
+								<< (phieu.da_tra_sach() ? "Da" : "Chua") << "tra sach" << std::endl
+								<< "Phi tre han: " << nTien << std::endl;
+				}
+		}
 }

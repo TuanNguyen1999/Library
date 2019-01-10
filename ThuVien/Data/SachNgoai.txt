@@ -1,0 +1,28 @@
+1\
+C++ book
+3435FDS
+First Last
+Publisher
+BookShelf
+9781234567897
+2\
+C# book
+1134ABC
+John Smith
+Publisher
+BookShelf
+9781214567897
+3\
+python book
+352FAWER
+Nathan
+Publisher
+BookShelf
+9781214446897
+4\
+graphic learner
+4621vsa
+Misthy
+Publisher
+BookShelf
+9712345676897

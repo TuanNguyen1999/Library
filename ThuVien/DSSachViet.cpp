@@ -12,6 +12,11 @@ void DSSachViet::ghi_file(const char* file) const
 
 void DSSachViet::xuat() const
 {
+		if (m_list.empty())
+		{
+				std::cout << "Danh sach trong.\n";
+				return;
+		}
 		int i = 1;
 		for (auto obj : m_list)
 				std::cout << i++ << "\\\n" << obj << std::endl;
@@ -45,6 +50,7 @@ void DSSachViet::them()
 				if (temp.ten().empty())
 						return;
 				m_list.push_back(temp);
+				std::cout << "Da them thanh cong!\n";
 		}
 }
 std::vector<int> DSSachViet::tim_kiem() const

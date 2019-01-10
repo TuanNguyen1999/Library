@@ -17,6 +17,7 @@ public:
 		virtual void xoa();
 		const std::vector<Phieu>& danh_sach() const { return m_list; }
 		virtual void nhap_danh_sach(const DSDG&, const DSSV& dssv, const DSSN& dssn);
+		void danh_sach_tre_han() const;
 private:
 		std::vector<Phieu> m_list;
 
@@ -24,6 +25,7 @@ private:
 		virtual void them() {}
 		virtual std::vector<int> tim_kiem() const { return std::vector<int>(); }
 		virtual void nhap_tu_file(const char*) {}
+		virtual void nhap_danh_sach() {}
 } DSP;
 
 #endif

@@ -45,7 +45,7 @@ ThoiGian& ThoiGian::new_time(tm time)
 std::string ThoiGian::ctime() const
 {
 		static char buffer[50];
-		strftime(buffer, 50, "%a %d/%m/%Y", &timeinfo);
+		strftime(buffer, 50, "%d/%m/%Y", &timeinfo);
 		return std::string(buffer,50);
 }
 int ThoiGian::distance_in_days(const ThoiGian& high, const ThoiGian& low)
