@@ -45,6 +45,9 @@ public:
 		static std::string toupper(std::string);
 		static std::string title(std::string);
 
+		static void pause();
+		static void clear();
+
 };
 
 #endif
